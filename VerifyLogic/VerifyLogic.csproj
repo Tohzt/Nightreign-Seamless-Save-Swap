@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWindowsForms>true</UseWindowsForms>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- Reference the real shipping logic so we test the actual code paths. -->
+    <Compile Include="..\NightreignSaveSwapper\SaveLocator.cs" />
+    <Compile Include="..\NightreignSaveSwapper\SwapService.cs" />
+  </ItemGroup>
+</Project>
