@@ -23,6 +23,7 @@ public sealed class MainForm : Form
     public MainForm()
     {
         Text = "Nightreign Save Swapper";
+        Icon = LoadAppIcon();
         Font = new Font("Segoe UI", 9f);
         FormBorderStyle = FormBorderStyle.FixedSingle;
         MaximizeBox = false;
@@ -119,6 +120,20 @@ public sealed class MainForm : Form
             title, _folderLabel, savesBox, _toSeamlessButton, _toVanillaButton,
             riskNote, refreshButton, openBackupsButton, _statusLabel,
         });
+    }
+
+    /// <summary>Load the embedded window/taskbar icon; fall back to default if unavailable.</summary>
+    private static Icon? LoadAppIcon()
+    {
+        try
+        {
+            using var stream = typeof(MainForm).Assembly.GetManifestResourceStream("toast.ico");
+            return stream is null ? null : new Icon(stream);
+        }
+        catch
+        {
+            return null;
+        }
     }
 
     // ---- Folder discovery -------------------------------------------------
